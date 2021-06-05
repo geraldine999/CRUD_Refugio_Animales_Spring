@@ -13,8 +13,9 @@
     <div class="form-icon">
       <span><i class="icon icon-ghost"></i></span>
     </div>
-    <div th:if="${animal.getIdanimal()==null}">Nuevo animal</div>
-    <div th:unless="${animal.getIdanimal()==null}">Editar animal</div>
+    <div th:if="${animal.getNombre() == null}">Nuevo animal</div>
+    <div th:unless="${animal.getNombre() == null}">Editar animal</div>
+    <input type="hidden" name="idanimal" th:value="${animal.getIdanimal()}">
     <br />
     <div class="form-group">
       <input type="text" class="form-control item" name="nombre" placeholder="Nombre" th:value="${animal.getNombre()}">
@@ -27,6 +28,9 @@
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-block create-account">Guardar</button>
+    </div>
+    <div class="form-group">
+      <button type="button" onclick="history.back()" class="btn btn-block create-account boton-blanco">Cancelar</button>
     </div>
   </form>
 </div>

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Animales</title>
     <link rel="stylesheet" href="/css/estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 <h2>Todos los animales</h2>
@@ -15,21 +17,43 @@
       <th>Nombre</th>
       <th>Edad</th>
       <th>Color</th>
+      <th>Editar</th>
+      <th>Borrar</th>
     </tr>
     </thead>
     <tbody>
     <tr th:if="${animales==null}">
-      <td colspan="4"> No se encontraron animales </td>
+      <td colspan="6"> No se encontraron animales </td>
     </tr>
     <tr th:each="animal : ${animales}">
-      <td><span th:text="${animal.getIdanimal()}"> ID animal </span></td>
+      <td th:id="'animal'+${animal.getIdanimal()}"><span th:text="${animal.getIdanimal()}"> ID animal </span></td>
       <td><span th:text="${animal.getNombre()}"> Nombre </span></td>
       <td><span th:text="${animal.getEdad()}"> Edad </span></td>
       <td><span th:text="${animal.getColor()}"> Color </span></td>
+      <td><a href="#" class="icono editar" th:id="${animal.getIdanimal()}"><i class="icon-pencil" title="Editar"></i></a></td>
+      <td><a href="#" class="icono borrar" th:id="${animal.getIdanimal()}"><i class="icon-trash" title="Borrar"></i></a></td>
     </tr>
     <tbody>
   </table>
 </div>
 <a href="/animales/nuevo" class="boton azul">Crear nuevo</a>
+<a href="#" class="boton azul">Buscar</a>
+
 </body>
+<script>
+  $(".editar").click(function(){
+    $(location).attr('href','/animales/editar/'+this.id);
+  });
+  $(".borrar").click(function(){
+    var itemID = $(this).attr("id");
+    $.ajax({
+      url: '/animales/borrar/'+itemID,
+      type: 'DELETE',
+      complete: function(data){
+        $("#animal"+itemID).parent().slideUp("slow");
+        console.log("termino");
+      }
+    });
+  });
+</script>
 </html>

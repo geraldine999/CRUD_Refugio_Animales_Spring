@@ -144,4 +144,20 @@ a.boton:hover{
         margin:0.2em auto;
     }
 }
-a.botonRojo{background-color: red;}
+.icono{
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 1px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 25px;
+    display: inline-block;
+    height: 25px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 25px;
+}
+.icono:hover{
+     opacity: 0.6;
+ }

@@ -6,7 +6,8 @@
 ## Interfaz del front
 - Los colores se envían como String.
 ## Base de datos
-Tabla animales.
+Tabla animales. 
+
 Columnas: id_animal, nombre, edad, color.
 ## Entidad en Java
 Animal. Mapear las columnas con atributos. Crear bean. @Entity
@@ -37,3 +38,5 @@ Inyectamos el service -> @Autowired de AnimalService
         Elimina un animal por ID
 
 *Java backend 5 - ADA 2021*
+
+**Pablo Acevedo**
