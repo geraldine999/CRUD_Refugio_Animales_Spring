@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Animales</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+<h2>Todos los animales</h2>
+<div class="table-wrapper">
+  <table class="fl-table">
+    <thead>
+    <tr>
+      <th>ID animal</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Color</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${animales==null}">
+      <td colspan="4"> No se encontraron animales </td>
+    </tr>
+    <tr th:each="animal : ${animales}">
+      <td><span th:text="${animal.getIdanimal()}"> ID animal </span></td>
+      <td><span th:text="${animal.getNombre()}"> Nombre </span></td>
+      <td><span th:text="${animal.getEdad()}"> Edad </span></td>
+      <td><span th:text="${animal.getColor()}"> Color </span></td>
+    </tr>
+    <tbody>
+  </table>
+</div>
+<a href="/animales/nuevo" class="boton azul">Crear nuevo</a>
+</body>
+</html>
