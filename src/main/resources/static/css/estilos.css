@@ -161,3 +161,55 @@ a.boton:hover{
 .icono:hover{
      opacity: 0.6;
  }
+
+/**********************************************************************************************/
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type=search] {
+    background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    border: solid 1px #ccc;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+input[type=search]:focus {
+    width: 230px;
+    background-color: #fff;
+    border:none;
+    outline: none;
+    -webkit-box-shadow: 0 0 5px rgba(39, 77, 95, 0.5);
+    -moz-box-shadow: 0 0 5px rgba(39, 77, 95,.5);
+    box-shadow: 0 0 5px rgba(39, 77, 95,.5);
+}
+.formBuscar{
+    border:none;
+    border-style: none;
+    outline: none;
+}
+.formBuscar:focus, input[type=search]:focus{
+    outline: none;
+    border: none;
+}
+input:-moz-placeholder {
+    color: #999;
+}
+input::-webkit-input-placeholder {
+    color: #999;
+}

@@ -9,6 +9,21 @@
 </head>
 <body>
 <h2>Todos los animales</h2>
+<form class="formBuscar" id="formBuscar" method="get" action="/animales/buscar">
+  <div>Buscar por nombre o ID:</div><br />
+  <input type="search" placeholder="Buscar por nombre o ID" name="nombreORid">
+  <input type="range" value="0" min="0" max="60" step="1" id="buscarEdad" name="edad" />
+  <span id="edadValor"></span>
+  <select class="form-control" name="color">
+    <option value="0" text="Buscar por color" selected />
+    <option th:each="color : ${colores}" th:value="${color}" th:text="${color}"></option>
+  </select>
+  <br /><br />
+  <a href="#" id="buscarBtn" class="boton azul">Buscar</a>
+  <a href="/animales/nuevo" class="boton azul">Crear nuevo</a>
+  <a href="/animales" class="boton azul">Ver todos</a>
+</form>
+<br />
 <div class="table-wrapper">
   <table class="fl-table">
     <thead>
@@ -22,7 +37,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${animales==null}">
+    <tr th:if="${animales.isEmpty()}">
       <td colspan="6"> No se encontraron animales </td>
     </tr>
     <tr th:each="animal : ${animales}">
@@ -36,14 +51,16 @@
     <tbody>
   </table>
 </div>
-<a href="/animales/nuevo" class="boton azul">Crear nuevo</a>
-<a href="#" class="boton azul">Buscar</a>
-
 </body>
 <script>
   $(".editar").click(function(){
     $(location).attr('href','/animales/editar/'+this.id);
   });
+
+
+
+
+
   $(".borrar").click(function(){
     var itemID = $(this).attr("id");
     $.ajax({
@@ -51,9 +68,21 @@
       type: 'DELETE',
       complete: function(data){
         $("#animal"+itemID).parent().slideUp("slow");
-        console.log("termino");
       }
     });
   });
+
+
+
+
+
+  $("#buscarEdad").on('input',function(){
+    $("#edadValor").text("0 - "+$("#buscarEdad").val());
+  });
+
+  $("#buscarBtn").click(function(){
+    $("#formBuscar").submit();
+  });
+
 </script>
 </html>
