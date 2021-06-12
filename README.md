@@ -1,3 +1,4 @@
+### Back hecho por mí (Geraldine Adelmann) y front hecho con Thymeleaf por Pablo Acevedo Areco- profe de Ada ITW
 # CRUD Refugio
 ## Objetivos
 - Crear un sistema de ABMC (CRUD) para nuestro refugio.
