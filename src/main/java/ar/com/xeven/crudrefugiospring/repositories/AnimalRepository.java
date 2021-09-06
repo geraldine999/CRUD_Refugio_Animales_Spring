@@ -1,5 +1,6 @@
-package ar.com.xeven.crudrefugiospring;
+package ar.com.xeven.crudrefugiospring.repositories;
 
+import ar.com.xeven.crudrefugiospring.entities.Animal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

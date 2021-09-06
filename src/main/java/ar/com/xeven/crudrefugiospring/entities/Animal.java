@@ -1,4 +1,4 @@
-package ar.com.xeven.crudrefugiospring;
+package ar.com.xeven.crudrefugiospring.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

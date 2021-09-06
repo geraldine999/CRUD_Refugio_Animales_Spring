@@ -1,5 +1,7 @@
-package ar.com.xeven.crudrefugiospring;
+package ar.com.xeven.crudrefugiospring.services;
 
+import ar.com.xeven.crudrefugiospring.entities.Animal;
+import ar.com.xeven.crudrefugiospring.repositories.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class AnimalService {
         this.animalRepository = animalRepository;
     }
 
-    List<Animal> mostrarTodosLosAnimales(){
+    public List<Animal> mostrarTodosLosAnimales(){
       return animalRepository.findAll();
     }
 

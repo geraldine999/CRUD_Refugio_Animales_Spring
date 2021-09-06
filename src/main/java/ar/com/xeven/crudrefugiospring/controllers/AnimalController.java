@@ -1,5 +1,7 @@
-package ar.com.xeven.crudrefugiospring;
+package ar.com.xeven.crudrefugiospring.controllers;
 
+import ar.com.xeven.crudrefugiospring.entities.Animal;
+import ar.com.xeven.crudrefugiospring.services.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -90,7 +92,7 @@ public class AnimalController {
     }
 
     @PostMapping("guardar")
-    public String saveAnimal(@ModelAttribute Animal animal, Model modelo){
+    public String saveAnimal(@ModelAttribute Animal animal){
         animalService.save(animal);
         return "redirect:/animales";
     }
